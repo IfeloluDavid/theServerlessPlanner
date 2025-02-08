@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "title": { "type": "string" },
+    "details": { "type": "string" },
+    "dueDate": { "type": "string", "format": "date-time" },
+    "additionalNotes": { "type": "string" }
+  },
+  "required": ["name", "email", "title", "details", "dueDate"]
+}
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::590184089259:role/service-role/theServerlessPlanner-role-xnz23qo0"
+      },
+      "Action": "dynamodb:PutItem",
+      "Resource": "arn:aws:dynamodb:af-south-1:590184089259:table/theServerlessPlanner"
+    }
+  ]
+}
+
+Method request
+Model
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "email": { "type": "string"},
+    "title": { "type": "string" },
+    "details": { "type": "string" },
+    "dueDate": { "type": "string" },
+    "additionalNotes": { "type": "string" }
+  },
+  "required": ["name", "email", "title", "details", "dueDate"]
+}
+
+
+
+INTEGRATION REQUEST
+Mapping templates (1)
+application/json
+
+{
+    "body": $input.json('$')
+}
+
+
+{
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "title": "Project Submission Reminder",
+    "details": "Reminder to submit the final project report before the deadline.",
+    "dueDate": "2025-02-10T15:00:00Z",
+    "additionalNotes": "Ensure all supporting documents are attached."
+}
+
+
+<div id="output" style="white-space: pre-wrap; background: #f4f4f4; padding: 10px; border: 1px solid #ddd;"></div>
+document.getElementById("output").innerText = JSON.stringify(formData, null, 2);
+
+
+h2 {
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
+    font-size: 2rem; /* Adjust size */
+    font-weight: 700; /* Bold text */
+    color: #007bff; /* Eye-catching blue */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Capitalized text */
+    letter-spacing: 1.5px; /* Spacing for better readability */
+    margin-top: 20px; /* Add spacing */
+    padding: 10px;
+    background: linear-gradient(to right, #ec4346, #ca24c7); /* Gradient effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Fancy gradient text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}

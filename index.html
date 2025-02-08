@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner & Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Task Alert: Plan & Get Notified</h2>
+        <form id="plannerForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="title" placeholder="Title of Plan" required>
+            <textarea id="details" placeholder="Details of your plan" required></textarea>
+            <input type="datetime-local" id="dueDate" required>
+            <textarea id="additionalNotes" placeholder="Additional Notes (optional)"></textarea>
+            <button type="submit">Submit Plan</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
